@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aleksandra Jastrzębska</title>
+
+  <!-- favicon: the little logo shown in the browser tab -->
+  <link rel="icon" type="image/png" href="images/logos/favicon.png">
+
+  <!-- Google Fonts: Space Grotesk (display headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation bar, fixed to the top -->
+  <nav class="nav">
+    <a href="#" class="nav__logo"><img class="nav__logo-img" src="images/logos/geoint_solo_logo.png" alt="Aleksandra Jastrzębska"></a>
+    <div class="nav__links">
+      <a href="#projects">Projects</a>
+      <a href="#maps">Maps</a>
+      <a href="#talks">Talks</a>
+      <a href="#background">About me</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero__content">
+      <p class="hero__eyebrow">GIS · Earth Observation · United Nations</p>
+      <h1 class="hero__title">Aleksandra Jastrzębska</h1>
+      <p class="hero__subtitle">Geospatial Data Scientist at the United Nations. I build tools from satellite imagery and lead products that connect schools to the Internet across the globe.</p>
+      <div class="hero__actions">
+        <a href="#projects" class="button button--primary">View my work</a>
+        <a href="#contact" class="button button--ghost">Get in touch</a>
+      </div>
+    </div>
+    <!-- a small geospatial detail, bottom corner -->
+    <p class="hero__coords">52.23&deg; N · 21.01&deg; E — Warsaw, Poland</p>
+
+    <!-- animated cue inviting the visitor to scroll; clicking it jumps to About -->
+    <a href="#about" class="hero__scroll" aria-label="Scroll to about">
+      <span class="hero__arrow"></span>
+    </a>
+  </header>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about__inner">
+      <img class="about__photo" src="images/pics/profile.jpg" alt="Aleksandra Jastrzębska speaking at a conference">
+      <div class="about__text">
+        <p class="section__eyebrow">Hello!</p>
+        <h2 class="section__title">Maps, data, and the people they serve</h2>
+        <p>I'm a Geospatial Data Scientist who turns satellite imagery and spatial data into tools, maps and decisions. At the United Nations (ITU/Giga) I build data pipelines, run infrastructure analysis across countries, and trained generative AI models on satellite imagery for my master's thesis.</p>
+        <p>I also love the human side of the work: leading the development of a global knowledge platform, engaging ministries and regulators across 14 countries, and speaking at international forums such as the AI for Good Global Summit. I work in English, Spanish and Polish, and I care about technology that actually reaches people.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects" id="projects">
+    <div class="projects__head">
+      <p class="section__eyebrow">Selected work</p>
+      <h2 class="section__title">Projects &amp; products</h2>
+    </div>
+    <div class="projects__grid">
+
+      <article class="card">
+        <div class="card__top">
+          <a href="https://giga.global/" target="_blank" rel="noopener"><img class="card__logo" src="images/logos/giga.png" alt="Giga"></a>
+          <span class="badge">In development</span>
+        </div>
+        <h3 class="card__title">GigaKIX</h3>
+        <p class="card__desc">A knowledge and data-sharing platform connecting governments, Internet service providers and partners across the Giga ecosystem.</p>
+        <p class="card__role">My role: leading the development</p>
+        <span class="card__link card__link--muted">Launching 2026</span>
+      </article>
+
+      <article class="card">
+        <div class="card__top">
+          <img class="card__logo" src="images/logos/itu.png" alt="ITU">
+          <span class="badge">In development</span>
+        </div>
+        <h3 class="card__title">Mobile Simulation Tool</h3>
+        <p class="card__desc">An open web tool that simulates mobile network coverage using the ITU-R P.1812 propagation model.</p>
+        <p class="card__role">My role: built the geospatial path-creation component</p>
+        <span class="card__link card__link--muted">Link coming soon</span>
+      </article>
+
+      <article class="card">
+        <div class="card__top">
+          <img class="card__logo" src="images/logos/un.png" alt="United Nations">
+          <span class="badge badge--live">Open source</span>
+        </div>
+        <h3 class="card__title">Generative AI for Maps</h3>
+        <p class="card__desc">My master's thesis: diffusion models trained on Sentinel-2 satellite imagery to generate synthetic maps. In collaboration with UNGSC.</p>
+        <p class="card__role">My role: author and developer</p>
+        <a class="card__link" href="https://github.com/aljastrz/thesis-fictitious-country-maps" target="_blank" rel="noopener">View on GitHub →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Maps -->
+  <section class="maps" id="maps">
+    <div class="maps__head">
+      <p class="section__eyebrow">Cartography</p>
+      <h2 class="section__title">Selected maps</h2>
+      <p class="maps__intro">A selection of cartography and spatial analysis, from professional thematic mapping to creative data visualisation.</p>
+    </div>
+
+    <div class="maps__feature-grid">
+      <figure><a href="images/maps/web/sierra-leone.jpg" target="_blank" rel="noopener"><img src="images/maps/web/sierra-leone.jpg" alt="Digital elevation model of Sierra Leone"></a></figure>
+      <figure><a href="images/maps/web/lego.jpg" target="_blank" rel="noopener"><img src="images/maps/web/lego.jpg" alt="LEGO-style land cover map of Stockholm"></a></figure>
+    </div>
+
+    <div class="maps__grid">
+      <figure><a href="images/maps/web/tanzania.jpg" target="_blank" rel="noopener"><img src="images/maps/web/tanzania.jpg" alt="Population density by district, Tanzania"></a></figure>
+      <figure><a href="images/maps/web/german-cities.jpg" target="_blank" rel="noopener"><img src="images/maps/web/german-cities.jpg" alt="Driving-distance reach from German cities"></a></figure>
+      <figure><a href="images/maps/web/carana.jpg" target="_blank" rel="noopener"><img src="images/maps/web/carana.jpg" alt="Location map of Carana"></a></figure>
+    </div>
+
+    <div class="maps__interactive">
+      <h3 class="maps__subtitle">Interactive story maps</h3>
+      <div class="projects__grid">
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__title">Kitesurfing Suitability</h3>
+            <span class="badge badge--live">Story map</span>
+          </div>
+          <p class="card__desc">An interactive ArcGIS story map of my published bachelor thesis on finding optimal kitesurfing locations in Europe.</p>
+          <p class="card__role">My role: author</p>
+          <a class="card__link" href="https://storymaps.arcgis.com/stories/3ca4d6767f7b4d34bab72a3c7771042d" target="_blank" rel="noopener">View story map →</a>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__title">Noise Pollution Mapping</h3>
+            <span class="badge badge--live">Interactive</span>
+          </div>
+          <p class="card__desc">A master's group project at Universitat Jaume I mapping urban noise pollution, with an interactive hub and a story map.</p>
+          <p class="card__role">My role: group project (UJI)</p>
+          <div class="card__links">
+            <a href="https://noise-pollution-uji.hub.arcgis.com/" target="_blank" rel="noopener">Project hub →</a>
+            <a href="https://storymaps.arcgis.com/stories/becbdae1ee834646ab270bc1e0bab26a" target="_blank" rel="noopener">Story map →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Talks -->
+  <section class="talks" id="talks">
+    <div class="talks__head">
+      <p class="section__eyebrow">Speaking</p>
+      <h2 class="section__title">Talks &amp; public forums</h2>
+      <p class="talks__intro">I regularly present technical work to non-technical audiences, from government delegations to international summits, in English and Spanish.</p>
+    </div>
+
+    <figure class="talks__photo">
+      <img src="images/pics/talk-panel.jpg" alt="Aleksandra Jastrzębska speaking at the WSIS+20 High-Level Event">
+      <figcaption class="talks__caption">Speaking at the WSIS+20 High-Level Event, Geneva. Photo: ITU</figcaption>
+    </figure>
+
+    <div class="talks__grid">
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/pCV37UFcIck?start=11831"
+                title="Aleksandra Jastrzębska at AI for Good"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      <div class="talks__list">
+        <h3>Selected appearances</h3>
+        <ul>
+          <li>WSIS+20 High-Level Event <span>Speaker, responsible AI in research — Geneva, 2025 (co-located with AI for Good)</span></li>
+          <li>Giga Connectivity Forum <span>Infrastructure modelling — Geneva, 2025</span></li>
+          <li>Government Technology Exchange Programme (GTEP) <span>Infrastructure analysis panel — Barcelona, 2025</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Background -->
+  <section class="background" id="background">
+    <div class="background__head">
+      <p class="section__eyebrow">About me</p>
+      <h2 class="section__title">Experience &amp; education</h2>
+    </div>
+    <div class="background__grid">
+
+      <div class="background__col">
+        <h3 class="background__subtitle">Experience</h3>
+        <ul class="timeline">
+          <li>
+            <div class="timeline__head">
+              <p class="timeline__role">GIS Expert</p>
+              <a href="https://giga.global/" target="_blank" rel="noopener"><img class="timeline__logo" src="images/logos/giga.png" alt="Giga"></a>
+            </div>
+            <p class="timeline__meta">ITU / Giga (United Nations) · Barcelona · Oct 2025 – present</p>
+            <p class="timeline__desc">Leading the development of GigaKIX, built the geospatial component of the Mobile Simulation Tool, and work on data pipelines and AI tooling.</p>
+          </li>
+          <li>
+            <div class="timeline__head">
+              <p class="timeline__role">Junior Mapping Expert (Internship)</p>
+              <img class="timeline__logo" src="images/logos/itu.png" alt="ITU">
+            </div>
+            <p class="timeline__meta">ITU / Giga (United Nations) · Geneva · Mar – Sep 2025</p>
+            <p class="timeline__desc">Geospatial infrastructure analysis across 14 countries; engaged ministries and regulators; presented at UN forums.</p>
+          </li>
+          <li>
+            <p class="timeline__role">Junior GIS Specialist</p>
+            <p class="timeline__meta">Envirosolutions · Warsaw · Sep 2022 – Aug 2023</p>
+            <p class="timeline__desc">Updated Poland's national topographic database (BDOT10k) using PostgreSQL and QGIS.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="background__col">
+        <h3 class="background__subtitle">Education</h3>
+        <ul class="timeline">
+          <li>
+            <p class="timeline__role">MSc, Geospatial Technologies (Erasmus Mundus)</p>
+            <p class="timeline__meta">Universitat Jaume I &amp; University of Münster · 2023 – 2025</p>
+            <p class="timeline__desc">Merit scholarship. Thesis: generative AI (diffusion models) on satellite imagery, featured above as the <a href="#projects" class="inline-link">Generative AI for Maps</a> project.</p>
+          </li>
+          <li>
+            <p class="timeline__role">BEng, Geoinformatics</p>
+            <p class="timeline__meta">Warsaw University of Technology · 2018 – 2023</p>
+            <p class="timeline__desc">Faculty of Geodesy and Cartography. A short paper based on this thesis was published at GeoMundus 2023: <em>Concept and development of an expert system to identify optimal locations for kitesurfing using Python language</em>.</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="skills">
+      <h3 class="background__subtitle">Skills &amp; tools</h3>
+      <div class="skills__grid">
+        <div class="skills__group">
+          <p class="skills__label">Languages</p>
+          <ul class="tags">
+            <li>English (C1)</li><li>Spanish (B2)</li><li>Polish (native)</li><li>French (basic)</li>
+          </ul>
+        </div>
+        <div class="skills__group">
+          <p class="skills__label">Programming &amp; data</p>
+          <ul class="tags">
+            <li>Python</li><li>SQL</li><li>R</li><li>JavaScript</li>
+          </ul>
+        </div>
+        <div class="skills__group">
+          <p class="skills__label">GIS &amp; Earth Observation</p>
+          <ul class="tags">
+            <li>QGIS</li><li>ArcGIS</li><li>FME</li><li>Google Earth Engine</li><li>PostGIS</li><li>Remote sensing / SAR</li>
+          </ul>
+        </div>
+        <div class="skills__group">
+          <p class="skills__label">Cloud &amp; tools</p>
+          <ul class="tags">
+            <li>AWS</li><li>Databricks</li><li>Azure DevOps</li><li>Git</li>
+          </ul>
+        </div>
+        <div class="skills__group">
+          <p class="skills__label">Focus areas</p>
+          <ul class="tags">
+            <li>Telecommunications &amp; connectivity</li><li>GeoAI</li><li>International development</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="contact__inner">
+      <p class="section__eyebrow">Contact</p>
+      <h2 class="contact__title">Let's work together</h2>
+      <p class="contact__text">Open to geospatial and data roles, remote-first or based in Warsaw, Geneva and beyond. If something here resonates, I'd love to hear from you.</p>
+      <p class="contact__email">geoint.aleksandra@gmail.com</p>
+      <div class="contact__links">
+        <a href="mailto:geoint.aleksandra@gmail.com" id="copyEmail" class="button button--primary">Email me</a>
+        <a href="https://www.linkedin.com/in/a-jastrzebska" target="_blank" rel="noopener" class="button button--ghost">LinkedIn</a>
+        <a href="https://github.com/aljastrz" target="_blank" rel="noopener" class="button button--ghost">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">&copy; 2026 Aleksandra Jastrzębska</footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

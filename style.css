@@ -1,0 +1,751 @@
+/* ---------- Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- Design tokens ---------- */
+:root {
+  --green: #1f6f57;        /* emerald */
+  --green-dark: #0d2e22;   /* deep emerald */
+  --accent: #8ed94f;       /* lime-green accent, echoes the AI for Good backdrop */
+  --text: #1a1a1a;
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;          /* animate jumps to #sections */
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* keep anchored sections from hiding under the fixed nav when you jump to them */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* ---------- Navigation (fixed to top) ---------- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  z-index: 10;
+  background: rgba(13, 46, 34, 0.8);   /* dark translucent bar, readable over any section */
+  backdrop-filter: blur(8px);          /* frosted-glass blur behind it */
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* the geoint logo, flipped to white to sit on the dark nav bar */
+.nav__logo-img {
+  height: 30px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.nav__links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  margin-left: 1.75rem;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.nav__links a:hover {
+  color: white;
+}
+
+/* ---------- Hero ----------
+   Three layered background images, top to bottom:
+   1 + 2: faint white lines forming a map grid (graticule)
+   3: the teal gradient underneath. */
+.hero {
+  position: relative;               /* so the coordinates/arrow can anchor to a corner */
+  min-height: 86vh;                 /* a bit under full height, so the next section peeks */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(135deg, var(--green-dark), var(--green));
+  background-size: 46px 46px, 46px 46px, cover;
+}
+
+.hero__content {
+  max-width: 720px;                 /* keep the text block tidy and centred */
+}
+
+.hero__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.hero__title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+.hero__subtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+}
+
+/* group of buttons, side by side and wrapping on small screens */
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* small monospace coordinates, pinned to the bottom-left corner */
+.hero__coords {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 2rem;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* animated "scroll down" cue, centred at the bottom of the hero */
+.hero__scroll {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+}
+
+/* a chevron drawn from two borders of a rotated square */
+.hero__arrow {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.75);
+  transform: rotate(45deg);
+  animation: bounce 1.6s infinite ease-in-out;
+}
+
+/* the gentle up-and-down motion (keeps the 45deg rotation throughout) */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(45deg); }
+  50%      { transform: translateY(8px) rotate(45deg); }
+}
+
+/* ---------- Buttons ----------
+   .button is the shared base; the --primary / --ghost modifiers
+   change just the colours. This is the BEM pattern in action. */
+.button {
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.button--primary {
+  background: var(--accent);
+  color: var(--green-dark);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.button--ghost {
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.button--ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+/* ---------- Shared section helpers (reused by every section) ---------- */
+.section__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  color: var(--green);
+  margin-bottom: 0.75rem;
+}
+
+.section__title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- About ---------- */
+.about {
+  padding: 6rem 2rem;
+  background: #ffffff;
+}
+
+.about__inner {
+  max-width: 1000px;
+  margin: 0 auto;                       /* centre the block horizontally */
+  display: grid;
+  grid-template-columns: 320px 1fr;     /* fixed photo column + flexible text */
+  gap: 3rem;
+  align-items: center;
+}
+
+.about__photo {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;                    /* fill the frame without stretching */
+  aspect-ratio: 1 / 1;                  /* keep it square */
+}
+
+.about__text p {
+  margin-bottom: 1rem;
+  color: #3a4a4f;
+}
+
+/* On narrow screens, stack the two columns into one */
+@media (max-width: 720px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .about__photo {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+
+/* ---------- Projects ---------- */
+.projects {
+  padding: 6rem 2rem;
+  background: #f4f7f8;
+}
+
+.projects__head {
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+}
+
+/* auto-fit + minmax = cards that wrap responsively with NO media query:
+   each card is at least 280px; the grid fits as many per row as space allows. */
+.projects__grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e3eaec;
+  border-radius: 16px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(13, 46, 34, 0.12);
+}
+
+.card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* the org logo, sharing the top row with the status badge */
+.card__logo {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* linked logos dim slightly on hover to signal they're clickable */
+a > .card__logo,
+a > .timeline__logo {
+  transition: opacity 0.2s ease;
+}
+
+a:hover > .card__logo,
+a:hover > .timeline__logo {
+  opacity: 0.65;
+}
+
+.card__title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.3rem;
+}
+
+.badge {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: #e3eaec;
+  color: #5b6b70;
+  white-space: nowrap;
+}
+
+.badge--live {
+  background: rgba(142, 217, 79, 0.22);
+  color: #3a7d1f;
+}
+
+.card__desc {
+  color: #3a4a4f;
+  font-size: 0.95rem;
+}
+
+.card__role {
+  color: #5b6b70;
+  font-size: 0.85rem;
+}
+
+/* margin-top:auto pushes the link to the bottom so all cards line up */
+.card__link {
+  margin-top: auto;
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.card__link:hover {
+  color: var(--green-dark);
+}
+
+.card__link--muted {
+  color: #9aa7ab;
+  font-weight: 500;
+}
+
+/* ---------- Maps ---------- */
+.maps {
+  padding: 6rem 2rem;
+  background: #f4f7f8;
+}
+
+.maps__head {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+.maps__intro {
+  color: #3a4a4f;
+  max-width: 640px;
+}
+
+/* two equal-size featured maps side by side */
+.maps__feature-grid {
+  max-width: 1100px;
+  margin: 0 auto 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.maps__feature-grid figure {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.maps__feature-grid img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.maps__feature-grid figure:hover img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 720px) {
+  .maps__feature-grid { grid-template-columns: 1fr; }
+}
+
+.maps__caption {
+  font-size: 0.8rem;
+  color: #9aa7ab;
+  margin-top: 0.6rem;
+}
+
+/* masonry-style gallery using CSS columns, which handles maps of different shapes */
+.maps__grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  column-count: 3;
+  column-gap: 1.25rem;
+}
+
+.maps__grid figure {
+  break-inside: avoid;        /* keep a map whole, don't split across columns */
+  margin: 0 0 1.25rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.maps__grid img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.maps__grid figure:hover img {
+  transform: scale(1.04);      /* gentle zoom on hover */
+}
+
+@media (max-width: 900px) { .maps__grid { column-count: 2; } }
+@media (max-width: 600px) { .maps__grid { column-count: 1; } }
+
+.maps__interactive {
+  max-width: 1100px;
+  margin: 3.5rem auto 0;
+}
+
+.maps__subtitle {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+/* a card that holds two links side by side */
+.card__links {
+  margin-top: auto;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.card__links a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.card__links a:hover {
+  color: var(--green-dark);
+}
+
+/* ---------- Talks ---------- */
+.talks {
+  padding: 6rem 2rem;
+  background: #ffffff;
+}
+
+.talks__head {
+  max-width: 1000px;
+  margin: 0 auto 2.5rem;
+}
+
+.talks__intro {
+  color: #3a4a4f;
+  max-width: 640px;
+}
+
+/* the wide panel photo, with its caption */
+.talks__photo {
+  max-width: 1000px;
+  margin: 0 auto 2.5rem;
+}
+
+.talks__photo img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+}
+
+.talks__caption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #9aa7ab;
+  margin-top: 0.6rem;
+}
+
+.talks__grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;   /* video wider than the list */
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* responsive video: the box keeps a 16:9 shape, the iframe fills it */
+.video {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+.video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.talks__list h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.talks__list ul {
+  list-style: none;          /* remove default bullets */
+}
+
+.talks__list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e3eaec;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.talks__list li span {
+  display: block;            /* push the detail onto its own line */
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #9aa7ab;
+}
+
+/* stack the video and list on narrow screens */
+@media (max-width: 720px) {
+  .talks__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Background (experience & education timeline) ---------- */
+.background {
+  padding: 6rem 2rem;
+  background: #f4f7f8;
+}
+
+.background__head {
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+}
+
+.background__grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.background__subtitle {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* vertical timeline: a left line with a dot per entry */
+.timeline {
+  list-style: none;
+}
+
+.timeline li {
+  position: relative;
+  padding-left: 1.5rem;
+  padding-bottom: 1.75rem;
+  border-left: 2px solid #d8e0e2;
+}
+
+.timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #f4f7f8;     /* ring matching the section background */
+}
+
+/* role title and small employer logo on one line */
+.timeline__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.timeline__logo {
+  height: 22px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.timeline__role {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.timeline__meta {
+  font-size: 0.85rem;
+  color: #9aa7ab;
+  margin: 0.15rem 0 0.4rem;
+}
+
+.timeline__desc {
+  font-size: 0.92rem;
+  color: #3a4a4f;
+}
+
+@media (max-width: 720px) {
+  .background__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* inline text link (e.g. the thesis -> project cross-reference) */
+.inline-link {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.inline-link:hover {
+  color: var(--green-dark);
+}
+
+/* ---------- Skills & tools ---------- */
+.skills {
+  max-width: 1000px;
+  margin: 3.5rem auto 0;
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem 3rem;
+  margin-top: 1.25rem;
+}
+
+.skills__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #5b6b70;
+  margin-bottom: 0.75rem;
+}
+
+/* pill-shaped tags */
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tags li {
+  background: #e7f0ea;          /* soft green-tint chip */
+  color: #2b4a3a;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+}
+
+/* ---------- Contact ---------- */
+.contact {
+  padding: 6rem 2rem;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+}
+
+/* the eyebrow is dark teal by default; make it the bright accent on this dark section */
+.contact .section__eyebrow {
+  color: var(--accent);
+}
+
+.contact__inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.contact__title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.contact__text {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.25rem;
+}
+
+/* the email shown as plain, selectable text so anyone can copy it */
+.contact__email {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 1.05rem;
+  color: var(--accent);
+  margin-bottom: 1.75rem;
+  user-select: all;            /* one click selects the whole address */
+}
+
+.contact__links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+  color: #9aa7ab;
+  background: var(--green-dark);
+}
