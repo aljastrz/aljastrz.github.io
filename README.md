@@ -1,25 +1,22 @@
-# aljastrz.github.io
+# 🌍 Aleksandra Jastrzębska — Portfolio
 
-Personal portfolio of **Aleksandra Jastrzębska** — Geospatial Data Scientist at the United Nations (ITU/Giga).
+> GIS · Earth Observation · United Nations
 
-Live at: [aljastrz.github.io](https://aljastrz.github.io)
+My personal portfolio website. ✨
+
+🔗 **[aljastrz.github.io](https://aljastrz.github.io/)**
 
 ---
 
-## What's here
+👋 I'm a Geospatial Data Scientist at the United Nations (ITU / Giga). I turn satellite imagery and spatial data into tools, maps, and decisions — and I lead products that help connect schools to the Internet across the globe.
 
-A single-page portfolio covering:
+### What you'll find here
 
-- **Projects** — GigaKIX, Mobile Simulation Tool, and a generative AI thesis on satellite imagery
-- **Maps** — selected cartography and spatial analysis work
-- **Talks** — international speaking appearances (WSIS+20, AI for Good, and others)
-- **Background** — experience, education, and skills
-- **Certificates** — GIS, AI, and business credentials
+- 🛰️ **Projects** — GigaKIX, the ITU Mobile Simulation Tool, and my generative-AI master's thesis
+- 🗺️ **Maps** — cartography, spatial analysis, and interactive story maps
+- 🎤 **Talks** — from government delegations to international summits
+- 🎓 **About** — experience, education, and the tools I work with
 
-## Stack
+### 📫 Get in touch
 
-Vanilla HTML, CSS, and JavaScript. No build step, no framework. Hosted on GitHub Pages.
-
-## Contact
-
-[geoint.aleksandra@gmail.com](mailto:geoint.aleksandra@gmail.com) · [LinkedIn](https://www.linkedin.com/in/a-jastrzebska) · [GitHub](https://github.com/aljastrz)
+[Email](mailto:geoint.aleksandra@gmail.com) · [LinkedIn](https://www.linkedin.com/in/a-jastrzebska) · [GitHub](https://github.com/aljastrz)
