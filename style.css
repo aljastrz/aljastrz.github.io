@@ -696,6 +696,74 @@ a:hover > .timeline__logo {
   border-radius: 999px;
 }
 
+/* ---------- Certificates ---------- */
+.certificates {
+  padding: 6rem 2rem;
+  background: #ffffff;
+}
+
+.certificates__head {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+.certificates__group {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+}
+
+.certificates__subtitle {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.certificates__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* limit the AI group so the two certs don't stretch full width */
+.certificates__grid--narrow {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 280px));
+}
+
+.certificates__grid figure {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e3eaec;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.certificates__grid figure:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(13, 46, 34, 0.12);
+}
+
+.certificates__grid img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.certificates__grid figure:hover img {
+  transform: scale(1.03);
+}
+
+.certificates__grid figcaption {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.82rem;
+  color: #3a4a4f;
+  line-height: 1.4;
+}
+
+@media (max-width: 720px) {
+  .certificates__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 /* ---------- Contact ---------- */
 .contact {
   padding: 6rem 2rem;
