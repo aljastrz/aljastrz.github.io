@@ -530,6 +530,45 @@ a:hover > .timeline__logo {
   display: block;
 }
 
+.video--thumb {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+
+.video--thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* play button triangle centred over the thumbnail */
+.video__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  transition: background 0.2s ease;
+}
+
+.video__play::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 18px 0 18px 32px;
+  border-color: transparent transparent transparent white;
+  margin-left: 6px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+
+.video--thumb:hover .video__play {
+  background: rgba(0, 0, 0, 0.5);
+}
+
 .talks__list h3 {
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.1rem;
